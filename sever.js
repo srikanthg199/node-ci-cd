@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
     res.status(200).send('Hello, CI/CD!');
 });
 
+app.get("/test", (req, res) => {
+    res.status(200).send('CI/CD Tested successful');
+})
+
 // Only start the server if this module is the main module being run
 if (require.main === module) {
     app.listen(port, () => {
