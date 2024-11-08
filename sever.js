@@ -7,8 +7,11 @@ app.get('/', (req, res) => {
     res.status(200).send('Hello, CI/CD!');
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+// Only start the server if this module is the main module being run
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
 
-module.exports = app;
+module.exports = app;  // Export only the app
